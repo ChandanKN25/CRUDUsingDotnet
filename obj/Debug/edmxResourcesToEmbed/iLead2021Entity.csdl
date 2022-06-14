@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="iLead2021Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="iLead2021Entities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TestUserTables" EntityType="iLead2021Model.TestUserTable" />
+    <AssociationSet Name="FK_TestUserTable_TestUserTable" Association="iLead2021Model.FK_TestUserTable_TestUserTable">
+      <End Role="TestUserTable" EntitySet="TestUserTables" />
+      <End Role="TestUserTable1" EntitySet="TestUserTables" />
+    </AssociationSet>
+    <EntitySet Name="Employees" EntityType="iLead2021Model.Employee" />
+  </EntityContainer>
+  <EntityType Name="TestUserTable">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="designation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TestUserTable1" Relationship="iLead2021Model.FK_TestUserTable_TestUserTable" FromRole="TestUserTable" ToRole="TestUserTable1" />
+    <NavigationProperty Name="TestUserTable2" Relationship="iLead2021Model.FK_TestUserTable_TestUserTable" FromRole="TestUserTable1" ToRole="TestUserTable" />
+  </EntityType>
+  <Association Name="FK_TestUserTable_TestUserTable">
+    <End Type="iLead2021Model.TestUserTable" Role="TestUserTable" Multiplicity="1" />
+    <End Type="iLead2021Model.TestUserTable" Role="TestUserTable1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TestUserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="TestUserTable1">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Empname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmpDesignation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Empsalary" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+</Schema>

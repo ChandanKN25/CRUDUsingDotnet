@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="iLead2021ModelStoreContainer" CdmEntityContainer="iLead2021Entities3">
+    <EntitySetMapping Name="TestUserTables">
+      <EntityTypeMapping TypeName="iLead2021Model.TestUserTable">
+        <MappingFragment StoreEntitySet="TestUserTable">
+          <ScalarProperty Name="designation" ColumnName="designation" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="iLead2021Model.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Empsalary" ColumnName="Empsalary" />
+          <ScalarProperty Name="EmpDesignation" ColumnName="EmpDesignation" />
+          <ScalarProperty Name="Empname" ColumnName="Empname" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,32 @@
+﻿@model List<iLEADWebAPI.Models.UsersModel>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-control">
+        <h1>User List</h1>
+        <hr />
+        <p class="lead">List of iLead Users.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+                    @Html.Grid(Model).Named("UsersGrid").Columns(c =>
+               {
+                   c.Add(x => x.user).Titled("User Name").Filterable(true).Sortable(true);
+                   c.Add(x => x.designation).Titled("Designation").Filterable(true).Sortable(true);
+                   c.Add(x => x.password).Titled("Password");
+               }).WithPaging(5).EmptyText("No data to display!")
+        </div>
+    </div>
+}
+
+@*@section scripts{
+      @Scripts.Render("~/bundles/Gridmvc")
+    }*@
+

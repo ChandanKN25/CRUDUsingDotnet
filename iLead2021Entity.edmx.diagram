@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="07ba21da52654b118277e10a81bc7ea3" Name="Diagram1">
+        <EntityTypeShape EntityType="iLead2021Model.TestUserTable" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="iLead2021Model.FK_TestUserTable_TestUserTable" />
+        <EntityTypeShape EntityType="iLead2021Model.Employee" Width="1.5" PointX="3.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

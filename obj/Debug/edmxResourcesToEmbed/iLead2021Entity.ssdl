@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="iLead2021Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Empname" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmpDesignation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Empsalary" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="TestUserTable">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="10" />
+    <Property Name="password" Type="nvarchar" MaxLength="10" />
+    <Property Name="designation" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_TestUserTable_TestUserTable">
+    <End Role="TestUserTable" Type="Self.TestUserTable" Multiplicity="1" />
+    <End Role="TestUserTable1" Type="Self.TestUserTable" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TestUserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="TestUserTable1">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="iLead2021ModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TestUserTable" EntityType="Self.TestUserTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TestUserTable_TestUserTable" Association="Self.FK_TestUserTable_TestUserTable">
+      <End Role="TestUserTable" EntitySet="TestUserTable" />
+      <End Role="TestUserTable1" EntitySet="TestUserTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<iLEADWebAPI.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Empname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpDesignation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empsalary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpDesignation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empsalary)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmpID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmpID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmpID })
+        </td>
+    </tr>
+}
+
+</table>
